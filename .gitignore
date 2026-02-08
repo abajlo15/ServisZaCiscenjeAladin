@@ -41,4 +41,7 @@ next-env.d.ts
 # Large video files and backups (preko 100MB - GitHub limit)
 public/Slike/*.mov
 public/Slike/*_original.mp4
+public/Slike/copy_83BC6465-8913-43E7-8439-8B3C7CAEF0B5.mov
+public/Slike/copy_95F33B7C-926A-4E36-BBB3-5BDC680859CE.mov
+public/Slike/copy_95F33B7C-926A-4E36-BBB3-5BDC680859CE.mp4
 
