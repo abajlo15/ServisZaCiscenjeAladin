@@ -13,6 +13,11 @@ const videos = [
     src: "/Slike/copy_83BC6465-8913-43E7-8439-8B3C7CAEF0B5.mp4",
     title: "Strojno pranje tepisona",
   },
+  {
+    id: 3,
+    src: "/Slike/smanjiti_compressed.mp4",
+    title: "Strojno pranje tepiha",
+  },
 ];
 
 export default function VideoSection() {
@@ -30,7 +35,7 @@ export default function VideoSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {videos.map((video) => (
             <div
               key={video.id}
