@@ -6,16 +6,6 @@ const videos = [
   {
     id: 1,
     src: "/Slike/copy_179C13BF-3DB6-450C-8878-2DBF6E842901.mp4",
-    title: "Profesionalno čišćenje",
-  },
-  {
-    id: 2,
-    src: "/Slike/copy_83BC6465-8913-43E7-8439-8B3C7CAEF0B5.mp4",
-    title: "Strojno pranje tepisona",
-  },
-  {
-    id: 3,
-    src: "/Slike/copy_95F33B7C-926A-4E36-BBB3-5BDC680859CE.mp4",
     title: "Strojno pranje tepiha",
   },
 ];
