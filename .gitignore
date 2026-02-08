@@ -38,3 +38,7 @@ next-env.d.ts
 # root Slike folder (slike su u public/Slike/)
 /Slike/
 
+# Large video files (preko 100MB - GitHub limit)
+public/Slike/*.mov
+public/Slike/copy_95F33B7C-926A-4E36-BBB3-5BDC680859CE.mp4
+
