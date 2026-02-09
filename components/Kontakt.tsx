@@ -52,10 +52,16 @@ export default function Kontakt() {
         });
         reset();
       } else {
+        const errorMessage = result.error || "Greška pri slanju poruke";
         setSubmitStatus({
           type: "error",
-          message: result.error || "Greška pri slanju poruke",
+          message: errorMessage,
         });
+        // Loguj detaljne greške u konzolu za debugging
+        console.error("Kontakt error:", result);
+        if (result.details) {
+          console.error("Error details:", result.details);
+        }
       }
     } catch (error) {
       setSubmitStatus({

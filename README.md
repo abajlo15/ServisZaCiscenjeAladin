@@ -94,9 +94,15 @@ AladinWEB/
 Aplikacija koristi Resend za slanje emailova. Za produkciju:
 
 1. Kreirajte account na [Resend](https://resend.com)
-2. Verificirajte email domenu ili koristite test domenu
-3. Generirajte API ključ
+2. Generirajte API ključ
+3. **Verificirajte domen** (za produkciju) - detaljne upute u [DNS_KONFIGURACIJA.md](./DNS_KONFIGURACIJA.md)
 4. Dodajte ključ u environment varijable
+
+**Važno:** DNS zapise dodajete na vašem DNS provideru (gdje je domen registriran), NE na Vercelu. Vercel samo koristi environment varijable.
+
+Za detaljne upute o DNS konfiguraciji, pogledajte [DNS_KONFIGURACIJA.md](./DNS_KONFIGURACIJA.md).
+
+**Ako se mailovi ne šalju**, pogledajte [TROUBLESHOOTING_EMAIL.md](./TROUBLESHOOTING_EMAIL.md) za korake dijagnostike.
 
 ## Google Recenzije Konfiguracija
 

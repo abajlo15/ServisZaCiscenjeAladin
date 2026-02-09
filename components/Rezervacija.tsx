@@ -74,10 +74,16 @@ export default function Rezervacija() {
         });
         reset();
       } else {
+        const errorMessage = result.error || "Greška pri slanju rezervacije";
         setSubmitStatus({
           type: "error",
-          message: result.error || "Greška pri slanju rezervacije",
+          message: errorMessage,
         });
+        // Loguj detaljne greške u konzolu za debugging
+        console.error("Rezervacija error:", result);
+        if (result.details) {
+          console.error("Error details:", result.details);
+        }
       }
     } catch (error) {
       setSubmitStatus({

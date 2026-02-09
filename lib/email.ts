@@ -24,9 +24,14 @@ export async function sendReservationEmail(data: {
       return { success: false, error: "Email servis nije konfiguriran" };
     }
 
+    const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
+    const toEmail = process.env.TO_EMAIL || "Serviszaciscenjealadin@gmail.com";
+
+    console.log("Sending email from:", fromEmail, "to:", toEmail);
+
     const result = await resend.emails.send({
-      from: process.env.FROM_EMAIL || "onboarding@resend.dev",
-      to: process.env.TO_EMAIL || "Serviszaciscenjealadin@gmail.com",
+      from: fromEmail,
+      to: toEmail,
       subject: `Nova rezervacija - ${data.ime}`,
       html: `
         <h2>Nova rezervacija</h2>
@@ -40,10 +45,30 @@ export async function sendReservationEmail(data: {
       `,
     });
 
+    console.log("Email sent successfully:", result);
     return { success: true, result };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error sending email:", error);
-    return { success: false, error };
+    // Detaljnije logiranje greške
+    if (error?.message) {
+      console.error("Error message:", error.message);
+    }
+    if (error?.response) {
+      console.error("Error response:", error.response);
+    }
+    if (error?.response?.data) {
+      console.error("Error response data:", error.response.data);
+    }
+    
+    // Resend specifične greške
+    const errorMessage = error?.message || "Nepoznata greška";
+    const errorDetails = error?.response?.data || error;
+    
+    return { 
+      success: false, 
+      error: errorMessage,
+      details: errorDetails
+    };
   }
 }
 
@@ -59,9 +84,14 @@ export async function sendContactEmail(data: {
       return { success: false, error: "Email servis nije konfiguriran" };
     }
 
+    const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
+    const toEmail = process.env.TO_EMAIL || "Serviszaciscenjealadin@gmail.com";
+
+    console.log("Sending email from:", fromEmail, "to:", toEmail);
+
     const result = await resend.emails.send({
-      from: process.env.FROM_EMAIL || "onboarding@resend.dev",
-      to: process.env.TO_EMAIL || "Serviszaciscenjealadin@gmail.com",
+      from: fromEmail,
+      to: toEmail,
       subject: `Nova kontakt poruka - ${data.ime}`,
       html: `
         <h2>Nova kontakt poruka</h2>
@@ -73,10 +103,30 @@ export async function sendContactEmail(data: {
       `,
     });
 
+    console.log("Email sent successfully:", result);
     return { success: true, result };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error sending email:", error);
-    return { success: false, error };
+    // Detaljnije logiranje greške
+    if (error?.message) {
+      console.error("Error message:", error.message);
+    }
+    if (error?.response) {
+      console.error("Error response:", error.response);
+    }
+    if (error?.response?.data) {
+      console.error("Error response data:", error.response.data);
+    }
+    
+    // Resend specifične greške
+    const errorMessage = error?.message || "Nepoznata greška";
+    const errorDetails = error?.response?.data || error;
+    
+    return { 
+      success: false, 
+      error: errorMessage,
+      details: errorDetails
+    };
   }
 }
 

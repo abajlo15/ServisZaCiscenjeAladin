@@ -13,7 +13,6 @@ const usluge = [
     link: "/usluge#tepisi",
     images: [
       "/Slike/DSC_9116.jpeg",
-      "/Slike/DSC_9125.jpeg",
       "/Slike/DSC_9126.jpeg",
       "/Slike/DSC_9129.jpeg",
       "/Slike/DSC_9133.jpeg",
@@ -26,12 +25,10 @@ const usluge = [
     description: "Strojno pranje tepisona obuhvaća usisavanje s četkama, tretiranje mrlja, šamponiranje i dubinsko ispiranje s ekstraktorom.",
     link: "/usluge#tepisoni",
     images: [
-      "/Slike/DSC_9151.jpeg",
       "/Slike/DSC_9150.jpeg",
       "/Slike/DSC_9152.jpeg",
-      "/Slike/DSC_9153.jpeg",
-      "/Slike/DSC_9154.jpeg",
       "/Slike/DSC_9155.jpeg",
+      "/Slike/DSC_9158.jpeg",
     ],
   },
   {

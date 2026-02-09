@@ -8,12 +8,16 @@ import Link from "next/link";
 const showcaseImages = [
   "DSC_9116.jpeg",
   "DSC_9120.jpeg",
-  "DSC_9125.jpeg",
+  "DSC_9126.jpeg",
   "DSC_9133.jpeg",
+  "DSC_9135.jpeg",
   "DSC_9140.jpeg",
   "DSC_9150.jpeg",
-  "DSC_9161.jpeg",
+  "DSC_9152.jpeg",
   "DSC_9170.jpeg",
+  "DSC_9181.jpeg",
+  "DSC_9182.jpeg",
+  "DSC_9220.jpeg",
 ];
 
 export default function ImageShowcase() {
@@ -24,10 +28,10 @@ export default function ImageShowcase() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Naši Rezultati
+            Naš Rad u Akciji
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Prije i poslije - vidite razliku koju profesionalno čišćenje čini
+            Pogledajte kako profesionalno transformiramo vaš prostor - od prljavštine do sjaja
           </p>
         </div>
 

@@ -23,8 +23,15 @@ export async function POST(request: NextRequest) {
     const result = await sendReservationEmail(validatedData);
 
     if (!result.success) {
+      console.error("Email sending failed:", result.error, result.details);
       return NextResponse.json(
-        { error: "Greška pri slanju emaila" },
+        { 
+          error: "Greška pri slanju emaila",
+          details: process.env.NODE_ENV === "development" ? {
+            error: result.error,
+            details: result.details
+          } : undefined
+        },
         { status: 500 }
       );
     }
@@ -36,7 +43,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Nevažeći podaci", details: error.issues },
+        { error: "Nevažeći podaci", details: error.errors },
         { status: 400 }
       );
     }

@@ -167,12 +167,9 @@ export default function Testimonials() {
                   <p className="text-gray-700 mb-4 italic flex-grow break-words overflow-hidden text-sm leading-relaxed">"{review.text}"</p>
                   <div className="border-t pt-4 mt-auto flex-shrink-0">
                     <p className="font-semibold text-gray-800 text-sm">{review.name}</p>
-                    <div className="flex items-center justify-between mt-1">
-                      <p className="text-xs text-gray-600">{review.location}</p>
-                      {review.date && (
-                        <p className="text-xs text-gray-500">{review.date}</p>
-                      )}
-                    </div>
+                    {review.date && (
+                      <p className="text-xs text-gray-500 mt-1">{review.date}</p>
+                    )}
                   </div>
                 </div>
               ))

@@ -10,9 +10,8 @@ export default function Hero() {
   // Odabiremo nekoliko slika za hero pozadinu
   const heroImages = [
     "DSC_9116.jpeg",
-    "DSC_9125.jpeg",
     "DSC_9140.jpeg",
-    "DSC_9161.jpeg",
+    "DSC_9170.jpeg",
   ];
 
   useEffect(() => {
