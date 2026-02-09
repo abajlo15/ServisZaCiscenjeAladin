@@ -55,6 +55,11 @@ export default function GalerijaPage() {
       "DSC_9261.jpeg",
       "DSC_9264.jpeg",
       "DSC_9269.jpeg",
+      "ciscenjestana1.jpeg",
+      "ciscenjestana2.jpeg",
+      "ciscenjestana3.jpeg",
+      "ciscenjestana4.jpeg",
+      "ciscenjestana5.jpeg",
     ];
     setImages(imageFiles);
   }, []);

@@ -95,7 +95,13 @@ const uslugeDetalji = [
       "Usisavanje i pranje podova",
       "Uklanjanje prašine",
     ],
-    images: [],
+    images: [
+      "/Slike/ciscenjestana1.jpeg",
+      "/Slike/ciscenjestana2.jpeg",
+      "/Slike/ciscenjestana3.jpeg",
+      "/Slike/ciscenjestana4.jpeg",
+      "/Slike/ciscenjestana5.jpeg",
+    ],
   },
 ];
 

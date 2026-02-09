@@ -62,7 +62,13 @@ const usluge = [
     title: "Generalno Čišćenje Stanova",
     description: "Kompletan servis generalnog čišćenja stanova uključuje čišćenje svih prostorija, sanitarnih čvorova, kuhinje, prozora i ostalih površina.",
     link: "/usluge#stanovi",
-    images: [],
+    images: [
+      "/Slike/ciscenjestana1.jpeg",
+      "/Slike/ciscenjestana2.jpeg",
+      "/Slike/ciscenjestana3.jpeg",
+      "/Slike/ciscenjestana4.jpeg",
+      "/Slike/ciscenjestana5.jpeg",
+    ],
   },
 ];
 
