@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Nevažeći podaci", details: error.issues },
+        { error: "Nevažeći podaci", details: error.errors },
         { status: 400 }
       );
     }

@@ -78,7 +78,6 @@ export default function ONamaPage() {
             </section>
 
             <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg text-center">
-              <h2 className="text-3xl font-bold mb-4">Spremni za čistku?</h2>
               <p className="text-xl mb-6 text-blue-100">
                 Kontaktirajte nas danas i dobit ćete besplatnu procjenu
               </p>
