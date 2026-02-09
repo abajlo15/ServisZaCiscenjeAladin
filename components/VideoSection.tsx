@@ -1,50 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 const videos = [
   {
     id: 1,
     src: "/Slike/copy_179C13BF-3DB6-450C-8878-2DBF6E842901.mp4",
     title: "Profesionalno čišćenje",
-    poster: "/Slike/DSC_9116.jpeg",
   },
   {
     id: 2,
     src: "/Slike/copy_83BC6465-8913-43E7-8439-8B3C7CAEF0B5.mp4",
     title: "Strojno pranje tepisona",
-    poster: "/Slike/DSC_9150.jpeg",
   },
   {
     id: 3,
     src: "/Slike/smanjiti_compressed.mp4",
     title: "Strojno pranje tepiha",
-    poster: "/Slike/DSC_9126.jpeg",
   },
 ];
 
 export default function VideoSection() {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
-  const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set());
-
-  const handleVideoClick = (videoId: number) => {
-    setSelectedVideo(videoId);
-  };
-
-  const handleVideoPlay = (videoId: number, e: React.SyntheticEvent<HTMLVideoElement>) => {
-    e.stopPropagation();
-    setPlayingVideos((prev) => new Set(prev).add(videoId));
-  };
-
-  const handleVideoPause = (videoId: number, e: React.SyntheticEvent<HTMLVideoElement>) => {
-    e.stopPropagation();
-    setPlayingVideos((prev) => {
-      const newSet = new Set(prev);
-      newSet.delete(videoId);
-      return newSet;
-    });
-  };
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -59,65 +36,42 @@ export default function VideoSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {videos.map((video) => {
-            const isPlaying = playingVideos.has(video.id);
-            return (
-              <div
-                key={video.id}
-                className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-                onClick={() => handleVideoClick(video.id)}
+          {videos.map((video) => (
+            <div
+              key={video.id}
+              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              onClick={() => setSelectedVideo(video.id)}
+            >
+              <video
+                className="w-full h-64 object-cover"
+                muted
+                loop
+                playsInline
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => {
+                  e.currentTarget.pause();
+                  e.currentTarget.currentTime = 0;
+                }}
               >
-                {/* Poster slika kao pozadina - vidljiva dok video nije pokrenut */}
-                <div className={`absolute inset-0 ${isPlaying ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 z-10`}>
-                  <Image
-                    src={video.poster}
-                    alt={video.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <video
-                  className="w-full h-64 object-cover relative z-0"
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster={video.poster}
-                  onMouseEnter={(e) => {
-                    if (window.innerWidth >= 768) {
-                      e.currentTarget.play();
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (window.innerWidth >= 768) {
-                      e.currentTarget.pause();
-                      e.currentTarget.currentTime = 0;
-                    }
-                  }}
-                  onPlay={(e) => handleVideoPlay(video.id, e)}
-                  onPause={(e) => handleVideoPause(video.id, e)}
-                >
-                  <source src={video.src} type="video/mp4" />
-                  Vaš browser ne podržava video tag.
-                </video>
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center z-20">
-                  <div className={`${isPlaying ? 'opacity-0' : 'opacity-70 md:opacity-0 md:group-hover:opacity-100'} transition-opacity`}>
-                    <svg
-                      className="w-16 h-16 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-20">
-                  <h3 className="text-white font-semibold">{video.title}</h3>
+                <source src={video.src} type="video/mp4" />
+                Vaš browser ne podržava video tag.
+              </video>
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg
+                    className="w-16 h-16 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                  </svg>
                 </div>
               </div>
-            );
-          })}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <h3 className="text-white font-semibold">{video.title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Video Modal */}
