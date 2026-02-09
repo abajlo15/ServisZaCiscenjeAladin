@@ -18,6 +18,8 @@ export default function Header() {
               width={120}
               height={40}
               className="h-10 w-auto"
+              priority
+              unoptimized
             />
             <span className="text-2xl font-bold text-gray-800">Servis za čišćenje Aladin</span>
           </Link>
