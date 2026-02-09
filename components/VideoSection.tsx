@@ -27,13 +27,13 @@ export default function VideoSection() {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Naš Rad u Akciji
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-white text-lg max-w-2xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             Pogledajte kako profesionalno obavljamo naše usluge čišćenja
           </p>
         </div>

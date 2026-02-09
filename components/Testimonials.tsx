@@ -119,17 +119,17 @@ export default function Testimonials() {
   const displayReviews = reviews.slice(0, 5);
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Iskustva Naših Klijenata
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-white text-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             Recenzije s Google-a
           </p>
           {error && (
-            <p className="text-red-600 text-sm mt-2">
+            <p className="text-red-200 text-sm mt-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               ⚠️ {error} (prikazuju se statičke recenzije)
             </p>
           )}
@@ -138,12 +138,12 @@ export default function Testimonials() {
         {loading ? (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-            <p className="mt-4 text-gray-600">Učitavanje recenzija...</p>
+            <p className="mt-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Učitavanje recenzija...</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {displayReviews.length === 0 ? (
-              <div className="col-span-full text-center text-gray-600">
+              <div className="col-span-full text-center text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 Trenutno nema dostupnih recenzija.
               </div>
             ) : (

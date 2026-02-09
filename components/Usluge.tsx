@@ -86,13 +86,13 @@ export default function Usluge() {
   };
 
   return (
-    <section id="usluge" className="py-16 md:py-24 bg-gray-50">
+    <section id="usluge" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Naše Usluge
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-white text-lg max-w-2xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             Profesionalne usluge čišćenja za vaš dom i ured
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function Usluge() {
             return (
               <div
                 key={usluga.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white/90 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-64 relative overflow-hidden group">
                   {/* Glavna slika */}

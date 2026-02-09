@@ -24,13 +24,13 @@ export default function ImageShowcase() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Galerija
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-white text-lg max-w-2xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             Pogledajte kako profesionalno transformiramo vaš prostor - od prljavštine do sjaja
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function ImageShowcase() {
         <div className="text-center">
           <Link
             href="/galerija"
-            className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition"
+            className="inline-flex items-center text-white font-semibold hover:text-blue-200 transition drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
           >
             Pogledajte cijelu galeriju
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
