@@ -51,6 +51,12 @@ export default function Header() {
                 <Link href="/usluge#namjestaj" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                   Dubinsko čišćenje namještaja
                 </Link>
+                <Link href="/usluge#automobili" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  Kemijsko čišćenje automobila
+                </Link>
+                <Link href="/usluge#stanovi" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                  Generalno čišćenje stanova
+                </Link>
               </div>
             </div>
             <Link

@@ -40,10 +40,29 @@ const usluge = [
       "/Slike/namjestaj1.webp",
       "/Slike/namjestaj2.webp",
       "/Slike/namjestaj3.jpg",
-      "/Slike/namjestaj4.jfif",
       "/Slike/namjestaj5.jpg",
       "/Slike/namjestaj6.jpg",
     ],
+  },
+  {
+    id: "automobili",
+    title: "Kemijsko Čišćenje Automobila",
+    description: "Profesionalno kemijsko čišćenje automobila uključuje detaljno čišćenje interijera, uklanjanje mrlja, dezinfekciju i zaštitu kože i tekstila.",
+    link: "/usluge#automobili",
+    images: [
+      "/Slike/DSC_9232.jpeg",
+      "/Slike/DSC_9198.jpeg",
+      "/Slike/DSC_9242.jpeg",
+      "/Slike/DSC_9261.jpeg",
+      "/Slike/DSC_9202.jpeg",
+    ],
+  },
+  {
+    id: "stanovi",
+    title: "Generalno Čišćenje Stanova",
+    description: "Kompletan servis generalnog čišćenja stanova uključuje čišćenje svih prostorija, sanitarnih čvorova, kuhinje, prozora i ostalih površina.",
+    link: "/usluge#stanovi",
+    images: [],
   },
 ];
 
@@ -64,13 +83,15 @@ export default function Usluge() {
     const intervals: NodeJS.Timeout[] = [];
     
     usluge.forEach((usluga) => {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prev) => ({
-          ...prev,
-          [usluga.id]: (prev[usluga.id] || 0 + 1) % usluga.images.length,
-        }));
-      }, 4000);
-      intervals.push(interval);
+      if (usluga.images && usluga.images.length > 0) {
+        const interval = setInterval(() => {
+          setCurrentImageIndex((prev) => ({
+            ...prev,
+            [usluga.id]: ((prev[usluga.id] || 0) + 1) % usluga.images.length,
+          }));
+        }, 4000);
+        intervals.push(interval);
+      }
     });
 
     return () => {
@@ -100,69 +121,83 @@ export default function Usluge() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {usluge.map((usluga) => {
             const currentIndex = currentImageIndex[usluga.id] || 0;
+            const hasImages = usluga.images && usluga.images.length > 0;
             return (
               <div
                 key={usluga.id}
                 className="bg-white/90 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-64 relative overflow-hidden group">
-                  {/* Glavna slika */}
-                  <Image
-                    src={usluga.images[currentIndex]}
-                    alt={`${usluga.title} - Slika ${currentIndex + 1}`}
-                    fill
-                    className="object-cover transition-opacity duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  
+                {hasImages ? (
+                  <div className="h-64 relative overflow-hidden group">
+                    {/* Glavna slika */}
+                    <Image
+                      src={usluga.images[currentIndex]}
+                      alt={`${usluga.title} - Slika ${currentIndex + 1}`}
+                      fill
+                      className="object-cover transition-opacity duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    
                   {/* Indikatori slika */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-                    {usluga.images.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => goToImage(usluga.id, index)}
-                        className={`h-2 rounded-full transition-all ${
-                          index === currentIndex
-                            ? "bg-white w-8"
-                            : "bg-white/50 w-2 hover:bg-white/75"
-                        }`}
-                        aria-label={`Prikaži sliku ${index + 1}`}
-                      />
-                    ))}
-                  </div>
+                  {usluga.images.length > 0 && (
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                      {usluga.images.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => goToImage(usluga.id, index)}
+                          className={`h-2 rounded-full transition-all ${
+                            index === currentIndex
+                              ? "bg-white w-8"
+                              : "bg-white/50 w-2 hover:bg-white/75"
+                          }`}
+                          aria-label={`Prikaži sliku ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  )}
 
                   {/* Strelicama za navigaciju */}
                   {usluga.images.length > 1 && (
-                    <>
-                      <button
-                        onClick={() =>
-                          goToImage(
-                            usluga.id,
-                            (currentIndex - 1 + usluga.images.length) % usluga.images.length
-                          )
-                        }
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10"
-                        aria-label="Prethodna slika"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={() =>
-                          goToImage(usluga.id, (currentIndex + 1) % usluga.images.length)
-                        }
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10"
-                        aria-label="Sljedeća slika"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    </>
-                  )}
-                </div>
+                      <>
+                        <button
+                          onClick={() =>
+                            goToImage(
+                              usluga.id,
+                              (currentIndex - 1 + usluga.images.length) % usluga.images.length
+                            )
+                          }
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                          aria-label="Prethodna slika"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={() =>
+                            goToImage(usluga.id, (currentIndex + 1) % usluga.images.length)
+                          }
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                          aria-label="Sljedeća slika"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </>
+                    )}
+                  </div>
+                ) : (
+                  <div className="h-64 relative overflow-hidden bg-gray-200 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <svg className="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-sm">Slike uskoro</p>
+                    </div>
+                  </div>
+                )}
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-800 mb-2">{usluga.title}</h3>
                   {usluga.subtitle && (

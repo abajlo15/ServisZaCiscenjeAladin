@@ -59,10 +59,43 @@ const uslugeDetalji = [
       "/Slike/namjestaj1.webp",
       "/Slike/namjestaj2.webp",
       "/Slike/namjestaj3.jpg",
-      "/Slike/namjestaj4.jfif",
       "/Slike/namjestaj5.jpg",
       "/Slike/namjestaj6.jpg",
     ],
+  },
+  {
+    id: "automobili",
+    title: "Kemijsko čišćenje automobila",
+    description: "Profesionalno kemijsko čišćenje automobila uključuje detaljno čišćenje interijera, uklanjanje mrlja, dezinfekciju i zaštitu kože i tekstila.",
+    features: [
+      "Čišćenje interijera",
+      "Uklanjanje mrlja",
+      "Dezinfekcija",
+      "Zaštita kože i tekstila",
+      "Čišćenje klima sistema",
+      "Poliranje plastike",
+    ],
+    images: [
+      "/Slike/DSC_9232.jpeg",
+      "/Slike/DSC_9198.jpeg",
+      "/Slike/DSC_9242.jpeg",
+      "/Slike/DSC_9261.jpeg",
+      "/Slike/DSC_9202.jpeg",
+    ],
+  },
+  {
+    id: "stanovi",
+    title: "Generalno čišćenje stanova",
+    description: "Kompletan servis generalnog čišćenja stanova uključuje čišćenje svih prostorija, sanitarnih čvorova, kuhinje, prozora i ostalih površina.",
+    features: [
+      "Čišćenje svih prostorija",
+      "Sanitarni čvorovi",
+      "Čišćenje kuhinje",
+      "Čišćenje prozora",
+      "Usisavanje i pranje podova",
+      "Uklanjanje prašine",
+    ],
+    images: [],
   },
 ];
 
@@ -110,10 +143,10 @@ export default function UslugePage() {
     <div className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Naše Usluge
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             Profesionalne usluge čišćenja za vaš dom i ured
           </p>
         </div>
@@ -161,7 +194,7 @@ export default function UslugePage() {
                       ))}
                     </ul>
                   </div>
-                  {usluga.images && (
+                  {usluga.images && usluga.images.length > 0 && usluga.images[currentIndex] ? (
                     <div className="md:w-96 flex-shrink-0">
                       <div className="h-64 relative overflow-hidden rounded-lg group">
                         <Image
@@ -219,6 +252,17 @@ export default function UslugePage() {
                             </button>
                           </>
                         )}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="md:w-96 flex-shrink-0">
+                      <div className="h-64 relative overflow-hidden rounded-lg bg-gray-200 flex items-center justify-center">
+                        <div className="text-center text-gray-500">
+                          <svg className="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <p className="text-sm">Slike uskoro</p>
+                        </div>
                       </div>
                     </div>
                   )}

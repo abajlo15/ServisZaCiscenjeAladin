@@ -2,29 +2,42 @@ const cjenikKategorije = [
   {
     kategorija: "Strojno pranje tepiha",
     usluge: [
-      { naziv: "Tepih (do 4m²)", cijena: "od 80 kn" },
-      { naziv: "Tepih (4-8m²)", cijena: "od 120 kn" },
-      { naziv: "Tepih (8-12m²)", cijena: "od 180 kn" },
-      { naziv: "Tepih (12m²+)", cijena: "Po dogovoru" },
+      { naziv: "Tepisi (do 3 m²)", cijena: "25€" },
+      { naziv: "Tepisi (od 3 m²)", cijena: "8€ / m²" },
       { naziv: "Prikup i dostava", cijena: "Besplatno" },
     ],
   },
   {
     kategorija: "Strojno pranje tepisona",
     usluge: [
-      { naziv: "Tepison (do 20m²)", cijena: "od 200 kn" },
-      { naziv: "Tepison (20-40m²)", cijena: "od 350 kn" },
-      { naziv: "Tepison (40m²+)", cijena: "Po dogovoru" },
+      { naziv: "Tepisoni (do 3 m²)", cijena: "25€" },
+      { naziv: "Tepisoni (od 3 m²)", cijena: "8€ / m²" },
+      { naziv: "Prikup i dostava", cijena: "Besplatno" },
     ],
   },
   {
     kategorija: "Dubinsko čišćenje namještaja",
     usluge: [
-      { naziv: "Kauč (2-3 sjedala)", cijena: "od 250 kn" },
-      { naziv: "Kauč (4+ sjedala)", cijena: "od 350 kn" },
-      { naziv: "Fotelja", cijena: "od 150 kn" },
-      { naziv: "Stolica (po komadu)", cijena: "od 80 kn" },
-      { naziv: "Ostali namještaj", cijena: "Po dogovoru" },
+      { naziv: "Kemijsko čišćenje madraca", cijena: "30€" },
+      { naziv: "Kemijsko čišćenje fotelje", cijena: "30€" },
+      { naziv: "Kemijsko čišćenje dvosjeda", cijena: "50€" },
+      { naziv: "Kemijsko čišćenje trosjeda", cijena: "70€" },
+      { naziv: "Kemijsko čišćenje kutne garniture", cijena: "90€" },
+      { naziv: "Kemijsko čišćenje stolice", cijena: "15€" },
+    ],
+  },
+  {
+    kategorija: "Kemijsko čišćenje automobila",
+    usluge: [
+      { naziv: "Sjedala", cijena: "120€" },
+      { naziv: "Kemijsko čišćenje kompletne unutrašnjosti automobila", cijena: "160€" },
+      { naziv: "Kemijsko čišćenje kompletne unutrašnjosti većih automobila", cijena: "200€" },
+    ],
+  },
+  {
+    kategorija: "Generalno čišćenje stanova",
+    usluge: [
+      { naziv: "Generalno čišćenje stana", cijena: "4€ / m²" },
     ],
   },
 ];
@@ -76,6 +89,12 @@ export default function CjenikPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <p className="text-gray-700 text-sm italic font-bold">
+            Cijena se može povećati zbog veće razine zaprljanja, hitnosti ili dodatnih usluga koje nisu uključene u standardnu ponudu.
+          </p>
         </div>
 
         <div className="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
