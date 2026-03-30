@@ -103,6 +103,26 @@ const uslugeDetalji = [
       "/Slike/ciscenjestana5.jpeg",
     ],
   },
+  {
+    id: "visokotlacno-pranje",
+    title: "Visokotlačno pranje",
+    description: "Profesionalno visokotlačno pranje za vanjske površine poput dvorišta, terasa, fasada, opločnjaka i prilaza uz uklanjanje tvrdokorne prljavštine.",
+    features: [
+      "Čišćenje opločnjaka i terasa",
+      "Pranje prilaza i dvorišta",
+      "Uklanjanje tvrdokorne prljavštine",
+      "Pranje zidova i fasada",
+      "Brza i efikasna usluga",
+      "Priprema površine za impregnaciju",
+    ],
+    images: [
+      "/Slike/visoko1.jpeg",
+      "/Slike/visoko2.jpeg",
+      "/Slike/visoko3.avif",
+      "/Slike/visoko4.png",
+      "/Slike/visoko5.png",
+    ],
+  },
 ];
 
 export default function UslugePage() {

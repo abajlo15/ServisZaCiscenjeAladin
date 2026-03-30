@@ -104,6 +104,11 @@ export default function Footer() {
                   Generalno čišćenje stanova
                 </Link>
               </li>
+              <li>
+                <Link href="/usluge#visokotlacno-pranje" className="text-gray-300 hover:text-white transition">
+                  Visokotlačno pranje
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -70,6 +70,19 @@ const usluge = [
       "/Slike/ciscenjestana5.jpeg",
     ],
   },
+  {
+    id: "visokotlacno-pranje",
+    title: "Visokotlačno Pranje",
+    description: "Profesionalno visokotlačno pranje vanjskih površina poput terasa, prilaza, opločnjaka i fasada uz uklanjanje tvrdokorne prljavštine.",
+    link: "/usluge#visokotlacno-pranje",
+    images: [
+      "/Slike/visoko1.jpeg",
+      "/Slike/visoko2.jpeg",
+      "/Slike/visoko3.avif",
+      "/Slike/visoko4.png",
+      "/Slike/visoko5.png",
+    ],
+  },
 ];
 
 export default function Usluge() {

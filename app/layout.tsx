@@ -5,11 +5,17 @@ import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
 
 export const metadata: Metadata = {
-  title: "Servis za čišćenje Aladin - Profesionalno čišćenje",
+  title: "Servis za čiščenje Aladin",
   description: "Dubinsko čišćenje za temeljitu čistoću svakog kutka vašeg doma ili ureda",
   keywords: "čišćenje, pranje tepiha, pranje tepisona, Zadar",
+  applicationName: "Servis za čiščenje Aladin",
+  icons: {
+    icon: "/Slike/logo.png",
+    shortcut: "/Slike/logo.png",
+    apple: "/Slike/logo.png",
+  },
   openGraph: {
-    title: "Servis za čišćenje Aladin - Profesionalno čišćenje",
+    title: "Servis za čiščenje Aladin",
     description: "Dubinsko čišćenje za temeljitu čistoću svakog kutka vašeg doma ili ureda",
     type: "website",
   },
