@@ -3,7 +3,8 @@ const cjenikKategorije = [
     kategorija: "Strojno pranje tepiha",
     usluge: [
       { naziv: "Tepisi (do 3 m²)", cijena: "25€" },
-      { naziv: "Tepisi (od 3 m²)", cijena: "8€ / m²" },
+      { naziv: "Sintetski tepih", cijena: "8€ / m²" },
+      { naziv: "Vuneni tepih", cijena: "10€ / m²" },
       { naziv: "Prikup i dostava", cijena: "Besplatno" },
     ],
   },
@@ -22,14 +23,14 @@ const cjenikKategorije = [
       { naziv: "Kemijsko čišćenje fotelje", cijena: "30€" },
       { naziv: "Kemijsko čišćenje dvosjeda", cijena: "50€" },
       { naziv: "Kemijsko čišćenje trosjeda", cijena: "70€" },
-      { naziv: "Kemijsko čišćenje kutne garniture", cijena: "90€" },
-      { naziv: "Kemijsko čišćenje stolice", cijena: "15€" },
+      { naziv: "Kemijsko čišćenje kutne garniture", cijena: "80€" },
+      { naziv: "Kemijsko čišćenje stolice", cijena: "10€" },
     ],
   },
   {
     kategorija: "Kemijsko čišćenje automobila",
     usluge: [
-      { naziv: "Sjedala", cijena: "120€" },
+      { naziv: "Kemijsko čišćenje automobilskih sjedala", cijena: "120€" },
       { naziv: "Kemijsko čišćenje kompletne unutrašnjosti automobila", cijena: "160€" },
       { naziv: "Kemijsko čišćenje kompletne unutrašnjosti većih automobila", cijena: "200€" },
     ],
@@ -38,6 +39,8 @@ const cjenikKategorije = [
     kategorija: "Generalno čišćenje stanova",
     usluge: [
       { naziv: "Generalno čišćenje stana", cijena: "4€ / m²" },
+      { naziv: "Visokotlačno pranje", cijena: "2€ / m²" },
+      { naziv: "Impregnacija kamena/opločnjaka", cijena: "3€ / m²" },
     ],
   },
 ];

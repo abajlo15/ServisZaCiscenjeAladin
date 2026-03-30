@@ -23,7 +23,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/usluge"
-              className="bg-blue-600 border-2 border-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 hover:border-white shadow-lg transition-all duration-300 text-center"
+              className="bg-transparent border-2 border-blue-500 text-blue-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300 text-center"
             >
               Saznaj više
             </Link>
