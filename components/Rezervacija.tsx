@@ -4,24 +4,22 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { USLUGE_OPTIONS } from "@/lib/usluge";
 
 const reservationSchema = z.object({
   ime: z.string().min(2, "Ime mora imati najmanje 2 znaka"),
   email: z.string().email("Nevažeća email adresa"),
   telefon: z.string().min(6, "Telefon mora imati najmanje 6 znakova"),
-  usluga: z.string().min(1, "Morate odabrati uslugu"),
+  adresa: z.string().min(5, "Adresa mora imati najmanje 5 znakova"),
+  usluga: z.string().refine((value) => USLUGE_OPTIONS.includes(value as (typeof USLUGE_OPTIONS)[number]), {
+    message: "Morate odabrati valjanu uslugu",
+  }),
   datum: z.string().min(1, "Morate odabrati datum"),
   vrijeme: z.string().min(1, "Morate odabrati vrijeme"),
   poruka: z.string().optional(),
 });
 
 type ReservationFormData = z.infer<typeof reservationSchema>;
-
-const usluge = [
-  "Strojno pranje tepiha",
-  "Strojno pranje tepisona",
-  "Dubinsko čišćenje namještaja",
-];
 
 const vremena = [
   "08:00",
@@ -174,6 +172,22 @@ export default function Rezervacija() {
               </div>
 
               <div>
+                <label htmlFor="adresa" className="block text-gray-700 font-semibold mb-2">
+                  Adresa *
+                </label>
+                <input
+                  type="text"
+                  id="adresa"
+                  {...register("adresa")}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Ulica i kućni broj"
+                />
+                {errors.adresa && (
+                  <p className="mt-1 text-sm text-red-600">{errors.adresa.message}</p>
+                )}
+              </div>
+
+              <div>
                 <label htmlFor="usluga" className="block text-gray-700 font-semibold mb-2">
                   Usluga *
                 </label>
@@ -183,7 +197,7 @@ export default function Rezervacija() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Odaberite uslugu</option>
-                  {usluge.map((usluga) => (
+                  {USLUGE_OPTIONS.map((usluga) => (
                     <option key={usluga} value={usluga}>
                       {usluga}
                     </option>

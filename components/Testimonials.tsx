@@ -10,6 +10,39 @@ interface Review {
   date?: string;
 }
 
+const fallbackReviews: Review[] = [
+  {
+    name: "Ana M.",
+    location: "Zadar",
+    text: "Odlična usluga! Tepisi su izgledali kao novi nakon pranja. Profesionalno i brzo.",
+    rating: 5,
+  },
+  {
+    name: "Marko P.",
+    location: "Zadar",
+    text: "Preporučujem svima. Strojno pranje tepiha je bilo izvrsno, a cijena pristupačna.",
+    rating: 5,
+  },
+  {
+    name: "Ivana K.",
+    location: "Zadar",
+    text: "Odlična usluga pranja tepisona. Profesionalno i brzo, preporučujem svima!",
+    rating: 5,
+  },
+  {
+    name: "Petar S.",
+    location: "Zadar",
+    text: "Vrlo zadovoljan uslugom. Tepisi su savršeno očišćeni i brzo vraćeni.",
+    rating: 5,
+  },
+  {
+    name: "Marija L.",
+    location: "Zadar",
+    text: "Profesionalna usluga, preporučujem! Sve je prošlo bez problema.",
+    rating: 5,
+  },
+];
+
 export default function Testimonials() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +56,7 @@ export default function Testimonials() {
         const response = await fetch("/api/recenzije");
         const data = await response.json();
         
-        console.log("API Response:", data); // Debug log
+        console.log("API Response:", data);
         
         if (data.reviews && data.reviews.length > 0) {
           console.log(`Uspješno dohvaćeno ${data.reviews.length} recenzija`);
@@ -31,82 +64,25 @@ export default function Testimonials() {
         } else {
           // Ako ima grešku, prikaži je
           if (data.error) {
-            console.error("API Error:", data.error);
-            setError(data.error);
+            if (typeof data.error === "string" && data.error.includes("nije konfiguriran")) {
+              console.info("Google Places API nije konfiguriran, koristim statičke recenzije.");
+              setError(null);
+            } else {
+              console.error("API Error:", data.error);
+              setError(data.error);
+            }
           } else {
             console.warn("API vratio prazan array recenzija");
             setError("Nema dostupnih recenzija");
           }
           // Fallback na statičke recenzije ako API ne radi
-          setReviews([
-            {
-              name: "Ana M.",
-              location: "Zadar",
-              text: "Odlična usluga! Tepisi su izgledali kao novi nakon pranja. Profesionalno i brzo.",
-              rating: 5,
-            },
-            {
-              name: "Marko P.",
-              location: "Zadar",
-              text: "Preporučujem svima. Strojno pranje tepiha je bilo izvrsno, a cijena pristupačna.",
-              rating: 5,
-            },
-            {
-              name: "Ivana K.",
-              location: "Zadar",
-              text: "Odlična usluga pranja tepisona. Profesionalno i brzo, preporučujem svima!",
-              rating: 5,
-            },
-            {
-              name: "Petar S.",
-              location: "Zadar",
-              text: "Vrlo zadovoljan uslugom. Tepisi su savršeno očišćeni i brzo vraćeni.",
-              rating: 5,
-            },
-            {
-              name: "Marija L.",
-              location: "Zadar",
-              text: "Profesionalna usluga, preporučujem! Sve je prošlo bez problema.",
-              rating: 5,
-            },
-          ]);
+          setReviews(fallbackReviews);
         }
       } catch (error) {
         console.error("Error fetching reviews:", error);
         setError("Greška pri dohvaćanju recenzija");
         // Fallback na statičke recenzije
-        setReviews([
-          {
-            name: "Ana M.",
-            location: "Zadar",
-            text: "Odlična usluga! Tepisi su izgledali kao novi nakon pranja. Profesionalno i brzo.",
-            rating: 5,
-          },
-          {
-            name: "Marko P.",
-            location: "Zadar",
-            text: "Preporučujem svima. Strojno pranje tepiha je bilo izvrsno, a cijena pristupačna.",
-            rating: 5,
-          },
-          {
-            name: "Ivana K.",
-            location: "Zadar",
-            text: "Odlična usluga pranja tepisona. Profesionalno i brzo, preporučujem svima!",
-            rating: 5,
-          },
-          {
-            name: "Petar S.",
-            location: "Zadar",
-            text: "Vrlo zadovoljan uslugom. Tepisi su savršeno očišćeni i brzo vraćeni.",
-            rating: 5,
-          },
-          {
-            name: "Marija L.",
-            location: "Zadar",
-            text: "Profesionalna usluga, preporučujem! Sve je prošlo bez problema.",
-            rating: 5,
-          },
-        ]);
+        setReviews(fallbackReviews);
       } finally {
         setLoading(false);
       }

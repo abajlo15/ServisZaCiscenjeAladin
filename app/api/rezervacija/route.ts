@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendReservationEmail } from "@/lib/email";
+import { USLUGE_OPTIONS } from "@/lib/usluge";
 import { z } from "zod";
 
 const reservationSchema = z.object({
   ime: z.string().min(2, "Ime mora imati najmanje 2 znaka"),
   email: z.string().email("Nevažeća email adresa"),
   telefon: z.string().min(6, "Telefon mora imati najmanje 6 znakova"),
-  usluga: z.string().min(1, "Morate odabrati uslugu"),
+  adresa: z.string().min(5, "Adresa mora imati najmanje 5 znakova"),
+  usluga: z.string().refine((value) => USLUGE_OPTIONS.includes(value as (typeof USLUGE_OPTIONS)[number]), {
+    message: "Morate odabrati valjanu uslugu",
+  }),
   datum: z.string().min(1, "Morate odabrati datum"),
   vrijeme: z.string().min(1, "Morate odabrati vrijeme"),
   poruka: z.string().optional(),

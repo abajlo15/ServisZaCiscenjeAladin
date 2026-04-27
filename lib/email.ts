@@ -13,6 +13,7 @@ export async function sendReservationEmail(data: {
   ime: string;
   email: string;
   telefon: string;
+  adresa: string;
   usluga: string;
   datum: string;
   vrijeme: string;
@@ -38,6 +39,7 @@ export async function sendReservationEmail(data: {
         <p><strong>Ime:</strong> ${data.ime}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Telefon:</strong> ${data.telefon}</p>
+        <p><strong>Adresa:</strong> ${data.adresa}</p>
         <p><strong>Usluga:</strong> ${data.usluga}</p>
         <p><strong>Datum:</strong> ${data.datum}</p>
         <p><strong>Vrijeme:</strong> ${data.vrijeme}</p>
